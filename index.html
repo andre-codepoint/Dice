@@ -11,9 +11,15 @@
         font-size: 42;
         width: 100%;
         margin-top: 2em;
-        text-align: center;
-        color: blue;
+        text-align: left;
+        color: black;
     }
+    .container {
+        position: relative;
+        text-align: center;
+        color: white;
+    }
+    .
 </style>
 <body>
 <audio id="myAudio">
@@ -32,7 +38,7 @@
         document.getElementById("result").innerHTML =Math.floor(Math.random() * 6) + 1;
     }
     function myFunction() {
-        var x, text;
+        var x, text,t1;
         x = document.getElementById("numb").value;
        if (isNaN(x) || x < 1 || x > 100) {
             text = "Input not valid, enter again";
@@ -54,17 +60,27 @@
                 if (n==5) {d5=d5+1};
                 if (n==6) {d6=d6+1};
             }
-            text = "OK!"+ "<br>"+"D1x "+d1+ "<br>"+"D2x "+d2+ "<br>"+"D3x "+d3+ "<br>"+"D4x "+d4+ "<br>"+"D5x "+d5+ "<br>"+"D6x "+d6+ "<br>";
+           t1="<img src=1.png  style=width:25px;height:25px;>";
+           t2="<img src=2.png  style=width:25px;height:25px;>";
+           t3="<img src=3.png  style=width:25px;height:25px;>";
+           t4="<img src=4.png  style=width:25px;height:25px;>";
+           t5="<img src=5.png  style=width:25px;height:25px;>";
+           t6="<img src=6.png  style=width:25px;height:25px;>";
+            text = "OK!"+ "<br>"+t1+" "+d1+"<br>"+t2+" "+d2+ "<br>"+t3+" "+d3+ "<br>"+t4+" "+d4+ "<br>"+t5+" "+d5+ "<br>"+t6+" "+d6+ "<br>";
         }
         playAudio();
         document.getElementById("demo").innerHTML = text;
     }
 </script>
-<h2>Dice shaker for Sam</h2>
+<div class="container" align="left">
+<img src="head.jpg" alt="" style="width:15%;">
+</div>
+<div class=hello>
+<h3>Dice shaker for Sam</h3>
+
 <p>Please input a number of Dices(1-100):</p>
 <input id="numb">
  <button type="button" onclick="myFunction()">Shake</button>
-<p id="demo"></p>
-<div class=hello><p id="result"></p> </div>
+<h3><p id="demo"></p></h3> </div>
 </body>
 </html>
