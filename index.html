@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    body { background-color: #ffffff; }
+    .hello
+    {
+        font-size: 42;
+        width: 100%;
+        margin-top: 2em;
+        text-align: center;
+        color: blue;
+    }
+</style>
+<body>
+<audio id="myAudio">
+    <source src="dice_throw.mp3" type="audio/mpeg">
+</audio>
+<script>
+
+    var a = document.getElementById("myAudio");
+
+    function playAudio() {
+        a.play();
+    }
+
+    function RandDice()
+    {
+        document.getElementById("result").innerHTML =Math.floor(Math.random() * 6) + 1;
+    }
+    function myFunction() {
+        var x, text;
+        x = document.getElementById("numb").value;
+       if (isNaN(x) || x < 1 || x > 100) {
+            text = "Input not valid, enter again";
+        } else {
+            let d1=0;
+            let d2=0;
+            let d3=0;
+            let d4=0;
+            let d5=0;
+            let d6=0;
+            let n=0;
+            var i;
+            for (i = 1; i <= x; i++) {
+                n=Math.floor(Math.random() * 6) + 1;
+                if (n==1) {d1=d1+1};
+                if (n==2) {d2=d2+1};
+                if (n==3) {d3=d3+1};
+                if (n==4) {d4=d4+1};
+                if (n==5) {d5=d5+1};
+                if (n==6) {d6=d6+1};
+            }
+            text = "OK!"+ "<br>"+"D1x "+d1+ "<br>"+"D2x "+d2+ "<br>"+"D3x "+d3+ "<br>"+"D4x "+d4+ "<br>"+"D5x "+d5+ "<br>"+"D6x "+d6+ "<br>";
+        }
+        playAudio();
+        document.getElementById("demo").innerHTML = text;
+    }
+</script>
+<h2>Dice shaker for Sam</h2>
+<p>Please input a number of Dices(1-100):</p>
+<input id="numb">
+ <button type="button" onclick="myFunction()">Shake</button>
+<p id="demo"></p>
+<div class=hello><p id="result"></p> </div>
+</body>
+</html>
